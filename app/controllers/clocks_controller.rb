@@ -10,6 +10,7 @@ class ClocksController < ApplicationController
 
   def create
     @clock = Clock.new(clocks_params)
+    @clock.time = Time.now
     @clock.save
     redirect_to new_clock_path
   end
