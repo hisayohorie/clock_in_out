@@ -5,8 +5,17 @@ class ClocksController < ApplicationController
   end
 
   def new
+    @clock = Clock.new
   end
 
   def create
+    @clock = Clock.new(clocks_params)
+    @clock.save
+    redirect_to new_clock_path
   end
+
+  private
+    def clocks_params
+      params.require(:clock).permit(:user, :in_out, :time)
+    end
 end
