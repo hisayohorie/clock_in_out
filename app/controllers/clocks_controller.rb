@@ -20,7 +20,8 @@ class ClocksController < ApplicationController
   end
 
   private
-    def clocks_params
-      params.require(:clock).permit(:user, :in_out, :time)
-    end
+
+  def clocks_params
+    params.require(:clock).permit(:user, :in_out, :time)
+  end
 end
