@@ -11,8 +11,12 @@ class ClocksController < ApplicationController
   def create
     @clock = Clock.new(clocks_params)
     @clock.time = Time.now.localtime
-    @clock.save
-    redirect_to new_clock_path
+    if @clock.save
+      flash[:notice] = "You clocked #{@clock.in_out.downcase} successfully"
+      redirect_to new_clock_path
+    else
+      render 'new'
+    end
   end
 
   private
