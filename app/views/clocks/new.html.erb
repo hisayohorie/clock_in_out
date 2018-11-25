@@ -1,2 +1,21 @@
 <h1>Clocks#new</h1>
+
+<%= form_with model: @clock, local: true do |form| %>
+ <p>
+   <%= form.label :user %>
+   <%= form.text_field :user %>
+ </p>
+ <p>
+   <%= form.label :in_out %>
+   <%= form.select :in_out, options_for_select([['In','In'], ['Out', 'Out']])  %>
+ </p>
+ <p>
+   <%= form.label :time %>
+   <%= form.datetime_field :time %>
+ </p>
+ <p>
+   <%= form.submit %>
+ </p>
+<% end %>
+
 <%= link_to 'See all logs', controller: 'clocks' %>
