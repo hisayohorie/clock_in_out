@@ -9,7 +9,7 @@
   <tr>
     <td><%= clock.user %></td>
     <td><%= clock.in_out %></td>
-    <td><%= clock.time %></td>
+    <td><%= clock.time.strftime("%F at %I:%M%p") %></td>
   </tr>
   <% end %>
 </table>
